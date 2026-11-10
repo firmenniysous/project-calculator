@@ -14,6 +14,10 @@ function divide(a, b) {
     return a / b;
 }
 
+let numberOne = [];
+let operator;
+let numberTwo = [];
+
 function operate(numOne, operator, numTwo) {
     let result = 0;
     if (operator === "+") {
@@ -28,5 +32,13 @@ function operate(numOne, operator, numTwo) {
     return result;
 }
 
-
-console.log(operate(4, "-", 1));
+let body = document.querySelector("body");
+let output = document.getElementById("output");
+let numberBtn = document.querySelectorAll(".number");
+numberBtn.forEach(btn => {
+    btn.addEventListener("click", e => {
+        numberOne.push(e.target.textContent);
+        let first = Number(numberOne.join(''));
+        output.textContent = first;
+    })
+});

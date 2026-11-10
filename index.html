@@ -5,28 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="calculator">
-        <div id="output"></div>
+        <div id="output">0</div>
         <div id="buttons-sector">
-            <button class="button number">1</button>
-            <button class="button number">2</button>
-            <button class="button number">3</button>
-            <button class="button operator">+</button>
-            <button class="button number">4</button>
-            <button class="button number">5</button>
-            <button class="button number">6</button>
+            <button class="button number" id="one">1</button>
+            <button class="button number" id="two">2</button>
+            <button class="button number" id="three">3</button>
+            <button class="button operator" id="plus">+</button>
+            <button class="button number" id="four">4</button>
+            <button class="button number" id="five">5</button>
+            <button class="button number" id="six">6</button>
             <button class="button operator" id="minus">-</button>
-            <button class="button number">7</button>
-            <button class="button number">8</button>
-            <button class="button number">9</button>
+            <button class="button number" id="seven">7</button>
+            <button class="button number" id="eight">8</button>
+            <button class="button number" id="nine">9</button>
             <button class="button operator" id="multiply">*</button>
             <button class="button" id="point">.</button>
-            <button class="button number">0</button>
+            <button class="button number" id="zero">0</button>
             <button class="button" id="equal">=</button>
-            <button class="button operator">/</button>
+            <button class="button operator" id="divide">/</button>
             <button class="button" id="clear">C</button>
             <button class="button" id="clear-all">AC</button>
         </div>

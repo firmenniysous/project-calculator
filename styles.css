@@ -35,11 +35,17 @@ body {
 }
 
 #output {
+    text-align: end;
     width: 270px;
     background-color: grey;
     height: 50px;
-    border: 1px solid black;
+    border: 1px solid #000000;
     margin-top: 15px;
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 39px;
 }
 
 #calculator {
