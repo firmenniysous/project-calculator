@@ -13,12 +13,10 @@ function multiply(a, b) {
 function divide(a, b) {
     return a / b;
 }
-
 let numberOneArr = [];
-let firstNumber = 0;
+let storeUsersNumbersArray = [];
+let currentNumber = 0;
 let operator = "";
-let numberTwoArr = [];
-let secondNumber = 0;
 
 function operate(numOne, operator, numTwo) {
     let result = 0;
@@ -36,11 +34,31 @@ function operate(numOne, operator, numTwo) {
 
 let body = document.querySelector("body");
 let output = document.getElementById("output");
-let numberBtn = document.querySelectorAll(".number");
-numberBtn.forEach(btn => {
+let numbersBtn = document.querySelectorAll(".number");
+numbersBtn.forEach(btn => {
     btn.addEventListener("click", e => {
         numberOneArr.push(e.target.textContent);
-        firstNumber = Number(numberOneArr.join(''));
-        output.textContent = firstNumber;
+        currentNumber = Number(numberOneArr.join(''));
+        output.textContent = currentNumber;
     })
 });
+
+let operators = document.querySelectorAll(".operator");
+operators.forEach(btn => {
+    btn.addEventListener ("click", e => {
+        operator = e.target.textContent;
+        storeUsersNumbersArray.push(currentNumber);
+        numberOneArr = [];
+        output.textContent = currentNumber;
+        console.log(storeUsersNumbersArray);
+    })
+});
+
+let equal = document.getElementById("equal");
+equal.addEventListener("click", e => {
+    storeUsersNumbersArray.push(currentNumber);
+    let firstNumber = storeUsersNumbersArray[0];
+    let secondNumber = storeUsersNumbersArray[1];
+    let result = operate(firstNumber, operator, secondNumber);
+    output.textContent = result;
+})
