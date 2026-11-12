@@ -17,6 +17,8 @@ let numberOneArr = [];
 let storeUsersNumbersArray = [];
 let currentNumber = 0;
 let operator = "";
+let firstNumber = 0;
+let secondNumber = 0;
 
 function operate(numOne, operator, numTwo) {
     let result = 0;
