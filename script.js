@@ -55,7 +55,7 @@ operators.forEach(btn => {
         firstNumber = storeUsersNumbersArray[0];
         operator = storeUsersNumbersArray[1];
         secondNumber = storeUsersNumbersArray[2];
-        if(storeUsersNumbersArray.length <= 2) {
+        if (storeUsersNumbersArray.length <= 2) {
             output.textContent = currentNumber;
         } else {
             result = operate(firstNumber, operator, secondNumber);
