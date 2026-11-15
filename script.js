@@ -68,12 +68,3 @@ operators.forEach(btn => {
         console.log(storeUsersNumbersArray);
     })
 });
-
-let equal = document.getElementById("equal");
-equal.addEventListener("click", e => {
-    storeUsersNumbersArray.push(currentNumber);
-    let firstNumber = storeUsersNumbersArray[0];
-    let secondNumber = storeUsersNumbersArray[1];
-    let result = operate(firstNumber, operator, secondNumber);
-    output.textContent = result;
-})
