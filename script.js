@@ -19,6 +19,7 @@ let currentNumber = 0;
 let operator = "";
 let firstNumber = 0;
 let secondNumber = 0;
+let result = 0;
 
 function operate(numOne, operator, numTwo) {
     let result = 0;
@@ -48,10 +49,22 @@ numbersBtn.forEach(btn => {
 let operators = document.querySelectorAll(".operator");
 operators.forEach(btn => {
     btn.addEventListener ("click", e => {
-        operator = e.target.textContent;
         storeUsersNumbersArray.push(currentNumber);
+        storeUsersNumbersArray.push(e.target.textContent);
         numberOneArr = [];
-        output.textContent = currentNumber;
+        firstNumber = storeUsersNumbersArray[0];
+        operator = storeUsersNumbersArray[1];
+        secondNumber = storeUsersNumbersArray[2];
+        if(storeUsersNumbersArray.length <= 2) {
+            output.textContent = currentNumber;
+        } else {
+            result = operate(firstNumber, operator, secondNumber);
+            output.textContent = result;
+            storeUsersNumbersArray = [];
+            storeUsersNumbersArray.push(result);
+            storeUsersNumbersArray.push(e.target.textContent);
+        }
+        
         console.log(storeUsersNumbersArray);
     })
 });
