@@ -17,10 +17,10 @@ let numberOneArr = [];
 let storeUsersNumbersArray = [];
 let currentNumber = 0;
 let operator = "";
-let firstNumber = 0;
-let secondNumber = 0;
+let firstNumber;
+let secondNumber;
 let result = 0;
-
+console.log(firstNumber);
 function operate(numOne, operator, numTwo) {
     let result = 0;
     if (operator === "+") {
@@ -49,22 +49,22 @@ numbersBtn.forEach(btn => {
 let operators = document.querySelectorAll(".operator");
 operators.forEach(btn => {
     btn.addEventListener ("click", e => {
-        storeUsersNumbersArray.push(currentNumber);
-        storeUsersNumbersArray.push(e.target.textContent);
-        numberOneArr = [];
-        firstNumber = storeUsersNumbersArray[0];
-        operator = storeUsersNumbersArray[1];
-        secondNumber = storeUsersNumbersArray[2];
-        if (storeUsersNumbersArray.length <= 2) {
-            output.textContent = currentNumber;
-        } else {
-            result = operate(firstNumber, operator, secondNumber);
-            output.textContent = result;
-            storeUsersNumbersArray = [];
-            storeUsersNumbersArray.push(result);
-            storeUsersNumbersArray.push(e.target.textContent);
+        if (firstNumber === undefined) {
+            firstNumber = currentNumber;
         }
-        
-        console.log(storeUsersNumbersArray);
-    })
+        output.textContent = firstNumber;
+        operator = e.target.textContent;
+        numberOneArr = [];
+        console.log(`first: ${firstNumber}`);
+        console.log(`second: ${secondNumber}`);
+    });
 });
+
+let equal = document.getElementById("equal");
+equal.addEventListener("click", e => {
+    secondNumber = currentNumber;
+    result = operate(firstNumber, operator, secondNumber);
+    firstNumber = result;
+    output.textContent = firstNumber;
+    console.log(`result: ${result}`);
+})
