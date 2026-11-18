@@ -51,6 +51,9 @@ operators.forEach(btn => {
     btn.addEventListener ("click", e => {
         if (firstNumber === undefined) {
             firstNumber = currentNumber;
+        } else {
+            secondNumber = currentNumber;
+            firstNumber = operate(firstNumber, operator, secondNumber);
         }
         output.textContent = firstNumber;
         operator = e.target.textContent;
