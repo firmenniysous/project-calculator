@@ -14,13 +14,12 @@ function divide(a, b) {
     return a / b;
 }
 let numberOneArr = [];
-let storeUsersNumbersArray = [];
 let currentNumber = 0;
 let operator = "";
 let firstNumber;
 let secondNumber;
 let result = 0;
-console.log(firstNumber);
+
 function operate(numOne, operator, numTwo) {
     let result = 0;
     if (operator === "+") {
@@ -35,7 +34,6 @@ function operate(numOne, operator, numTwo) {
     return result;
 }
 
-let body = document.querySelector("body");
 let output = document.getElementById("output");
 let numbersBtn = document.querySelectorAll(".number");
 numbersBtn.forEach(btn => {
@@ -65,9 +63,15 @@ operators.forEach(btn => {
 
 let equal = document.getElementById("equal");
 equal.addEventListener("click", e => {
-    secondNumber = currentNumber;
-    result = operate(firstNumber, operator, secondNumber);
-    firstNumber = result;
-    output.textContent = firstNumber;
+    if (operator === "") {
+        output.textContent = currentNumber;
+    } else {
+        secondNumber = currentNumber;
+        result = operate(firstNumber, operator, secondNumber);
+        firstNumber = result;
+        output.textContent = firstNumber;
+    }
+    console.log(`first: ${firstNumber}`);
+    console.log(`second: ${secondNumber}`);
     console.log(`result: ${result}`);
 })
