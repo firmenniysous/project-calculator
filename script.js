@@ -16,8 +16,8 @@ function divide(a, b) {
 let numberOneArr = [];
 let currentNumber = 0;
 let operator = "";
-let firstNumber;
-let secondNumber;
+let firstNumber = '';
+let secondNumber = '';
 let result = 0;
 
 function operate(numOne, operator, numTwo) {
@@ -47,7 +47,7 @@ numbersBtn.forEach(btn => {
 let operators = document.querySelectorAll(".operator");
 operators.forEach(btn => {
     btn.addEventListener ("click", e => {
-        if (firstNumber === undefined) {
+        if (firstNumber === '') {
             firstNumber = currentNumber;
         } else {
             secondNumber = currentNumber;
