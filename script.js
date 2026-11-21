@@ -49,10 +49,15 @@ operators.forEach(btn => {
     btn.addEventListener ("click", e => {
         if (firstNumber === '') {
             firstNumber = currentNumber;
+            currentNumber = '';
         } else {
             secondNumber = currentNumber;
+            currentNumber = '';
         }
-        
+        if (firstNumber !== '' && secondNumber !== '') {
+            firstNumber = operate(firstNumber, operator, secondNumber);
+            secondNumber = '';
+        }
         output.textContent = firstNumber;
         operator = e.target.textContent;
         numberOneArr = [];
