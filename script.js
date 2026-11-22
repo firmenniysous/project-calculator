@@ -55,14 +55,18 @@ operators.forEach(btn => {
             currentNumber = '';
         }
         if (firstNumber !== '' && secondNumber !== '') {
-            firstNumber = operate(firstNumber, operator, secondNumber);
+            result = operate(firstNumber, operator, secondNumber);
+            firstNumber = result;
             secondNumber = '';
+            currentNumber = '';
         }
         output.textContent = firstNumber;
         operator = e.target.textContent;
         numberOneArr = [];
         console.log(`first: ${firstNumber}`);
+        console.log(`operator: ${operator}`);
         console.log(`second: ${secondNumber}`);
+        console.log(`result: ${result}`);
     });
 });
 
@@ -77,6 +81,7 @@ equal.addEventListener("click", e => {
         output.textContent = firstNumber;
     }
     console.log(`first: ${firstNumber}`);
+    console.log(`operator: ${operator}`);
     console.log(`second: ${secondNumber}`);
     console.log(`result: ${result}`);
 })
