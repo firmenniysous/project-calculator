@@ -76,9 +76,6 @@ equal.addEventListener("click", e => {
         output.textContent = currentNumber;
     } else {
         secondNumber = currentNumber;
-        result = operate(firstNumber, operator, secondNumber);
-        firstNumber = result;
-        output.textContent = firstNumber;
     }
     console.log(`first: ${firstNumber}`);
     console.log(`operator: ${operator}`);
