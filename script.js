@@ -18,7 +18,7 @@ let currentNumber = 0;
 let operator = "";
 let firstNumber = '';
 let secondNumber = '';
-let result = 0;
+let result = '';
 
 function operate(numOne, operator, numTwo) {
     let result = 0;
@@ -49,16 +49,14 @@ operators.forEach(btn => {
     btn.addEventListener ("click", e => {
         if (firstNumber === '') {
             firstNumber = currentNumber;
-            currentNumber = '';
         } else {
             secondNumber = currentNumber;
-            currentNumber = '';
         }
         if (firstNumber !== '' && secondNumber !== '') {
             result = operate(firstNumber, operator, secondNumber);
             firstNumber = result;
             secondNumber = '';
-            currentNumber = '';
+            operator = '';
         }
         output.textContent = firstNumber;
         operator = e.target.textContent;
@@ -67,6 +65,7 @@ operators.forEach(btn => {
         console.log(`operator: ${operator}`);
         console.log(`second: ${secondNumber}`);
         console.log(`result: ${result}`);
+        console.log(`current number: ${currentNumber}`);
     });
 });
 
@@ -77,8 +76,16 @@ equal.addEventListener("click", e => {
     } else {
         secondNumber = currentNumber;
     }
-    console.log(`first: ${firstNumber}`);
-    console.log(`operator: ${operator}`);
-    console.log(`second: ${secondNumber}`);
-    console.log(`result: ${result}`);
+    if (result === '') {
+        result = operate(firstNumber, operator, secondNumber);
+    } else {
+        firstNumber = result;
+        result = operate(result, operator, currentNumber);
+    }
+    output.textContent = result;
+        console.log(`first: ${firstNumber}`);
+        console.log(`operator: ${operator}`);
+        console.log(`second: ${secondNumber}`);
+        console.log(`result: ${result}`);
+        console.log(`current number: ${currentNumber}`);
 })
