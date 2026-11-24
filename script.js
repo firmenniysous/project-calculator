@@ -38,6 +38,15 @@ let output = document.getElementById("output");
 let numbersBtn = document.querySelectorAll(".number");
 numbersBtn.forEach(btn => {
     btn.addEventListener("click", e => {
+        if (firstNumber !== '' 
+            && secondNumber !== ''
+            && result !== ''
+            && currentNumber !== 0) {
+                firstNumber = '';
+                secondNumber = '';
+                result = '';
+                currentNumber = 0;
+            }
         numberOneArr.push(e.target.textContent);
         currentNumber = Number(numberOneArr.join(''));
         output.textContent = currentNumber;
@@ -53,11 +62,11 @@ operators.forEach(btn => {
             secondNumber = currentNumber;
         }
         if (firstNumber !== '' && secondNumber !== '') {
-            result = operate(firstNumber, operator, secondNumber);
-            firstNumber = result;
+            firstNumber = operate(firstNumber, operator, secondNumber);
             secondNumber = '';
             operator = '';
         }
+        currentNumber = '';
         output.textContent = firstNumber;
         operator = e.target.textContent;
         numberOneArr = [];
@@ -72,7 +81,7 @@ operators.forEach(btn => {
 let equal = document.getElementById("equal");
 equal.addEventListener("click", e => {
     if (operator === "") {
-        output.textContent = currentNumber;
+        output.textContent = firstNumber;
     } else {
         secondNumber = currentNumber;
     }
@@ -80,9 +89,10 @@ equal.addEventListener("click", e => {
         result = operate(firstNumber, operator, secondNumber);
     } else {
         firstNumber = result;
-        result = operate(result, operator, currentNumber);
+        result = operate(result, operator, secondNumber);
     }
     output.textContent = result;
+    numberOneArr = [];
         console.log(`first: ${firstNumber}`);
         console.log(`operator: ${operator}`);
         console.log(`second: ${secondNumber}`);
