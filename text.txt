@@ -1,0 +1,21 @@
+let equal = document.getElementById("equal");
+equal.addEventListener("click", e => {
+    if (operator === "") {
+        output.textContent = firstNumber;
+    } else {
+        secondNumber = currentNumber;
+    }
+    if (result === '') {
+        result = operate(firstNumber, operator, secondNumber);
+    } else {
+        firstNumber = result;
+        result = operate(result, operator, secondNumber);
+    }
+    output.textContent = result;
+    numberOneArr = [];
+        console.log(`first: ${firstNumber}`);
+        console.log(`operator: ${operator}`);
+        console.log(`second: ${secondNumber}`);
+        console.log(`result: ${result}`);
+        console.log(`current number: ${currentNumber}`);
+})

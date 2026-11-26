@@ -80,19 +80,26 @@ operators.forEach(btn => {
 
 let equal = document.getElementById("equal");
 equal.addEventListener("click", e => {
-    if (operator === "") {
-        output.textContent = firstNumber;
-    } else {
+    if (firstNumber === ''
+        && secondNumber === ''
+    ) {
+        output.textContent = currentNumber;
+    } else if (firstNumber !== ''
+        && secondNumber === ''
+    ) {
         secondNumber = currentNumber;
-    }
-    if (result === '') {
+    } if (firstNumber !== ''
+        && secondNumber !== ''
+    ) {
+        if (result === '') {
         result = operate(firstNumber, operator, secondNumber);
-    } else {
+        output.textContent = result;
+        } else {
         firstNumber = result;
         result = operate(result, operator, secondNumber);
+        output.textContent = result;
+        }
     }
-    output.textContent = result;
-    numberOneArr = [];
         console.log(`first: ${firstNumber}`);
         console.log(`operator: ${operator}`);
         console.log(`second: ${secondNumber}`);
