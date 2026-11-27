@@ -36,6 +36,9 @@ function operate(numOne, operator, numTwo) {
 
 let output = document.getElementById("output");
 let numbersBtn = document.querySelectorAll(".number");
+let operators = document.querySelectorAll(".operator");
+let equal = document.getElementById("equal");
+let eraseBtn = document.getElementById("erase-last");
 numbersBtn.forEach(btn => {
     btn.addEventListener("click", e => {
         if (firstNumber !== '' 
@@ -53,7 +56,6 @@ numbersBtn.forEach(btn => {
     })
 });
 
-let operators = document.querySelectorAll(".operator");
 operators.forEach(btn => {
     btn.addEventListener ("click", e => {
         if (firstNumber === '') {
@@ -79,8 +81,8 @@ operators.forEach(btn => {
     });
 });
 
-let equal = document.getElementById("equal");
-equal.addEventListener("click", e => {
+
+equal.addEventListener("click", () => {
     if (firstNumber === ''
         && secondNumber === ''
     ) {
@@ -106,4 +108,8 @@ equal.addEventListener("click", e => {
         console.log(`second: ${secondNumber}`);
         console.log(`result: ${result}`);
         console.log(`current number: ${currentNumber}`);
+});
+
+eraseBtn.addEventListener("click", () => {
+    //MAKE A BUTTON USABLE!!!
 })
