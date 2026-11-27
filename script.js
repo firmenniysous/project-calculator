@@ -38,7 +38,6 @@ let output = document.getElementById("output");
 let numbersBtn = document.querySelectorAll(".number");
 let operators = document.querySelectorAll(".operator");
 let equal = document.getElementById("equal");
-let eraseBtn = document.getElementById("erase-last");
 numbersBtn.forEach(btn => {
     btn.addEventListener("click", e => {
         if (firstNumber !== '' 
@@ -109,7 +108,3 @@ equal.addEventListener("click", () => {
         console.log(`result: ${result}`);
         console.log(`current number: ${currentNumber}`);
 });
-
-eraseBtn.addEventListener("click", () => {
-    //MAKE A BUTTON USABLE!!!
-})
