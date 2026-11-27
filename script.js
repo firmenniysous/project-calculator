@@ -40,12 +40,12 @@ numbersBtn.forEach(btn => {
     btn.addEventListener("click", e => {
         if (firstNumber !== '' 
             && secondNumber !== ''
-            && result !== ''
             && currentNumber !== 0) {
                 firstNumber = '';
                 secondNumber = '';
                 result = '';
                 currentNumber = 0;
+                numberOneArr = [];
             }
         numberOneArr.push(e.target.textContent);
         currentNumber = Number(numberOneArr.join(''));
@@ -62,6 +62,7 @@ operators.forEach(btn => {
             secondNumber = currentNumber;
         }
         if (firstNumber !== '' && secondNumber !== '') {
+            result = '';
             firstNumber = operate(firstNumber, operator, secondNumber);
             secondNumber = '';
             operator = '';
