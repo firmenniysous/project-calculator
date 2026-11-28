@@ -34,10 +34,12 @@ function operate(numOne, operator, numTwo) {
     return result;
 }
 
-let output = document.getElementById("output");
-let numbersBtn = document.querySelectorAll(".number");
-let operators = document.querySelectorAll(".operator");
-let equal = document.getElementById("equal");
+const output = document.getElementById("output");
+const numbersBtn = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
+const equal = document.getElementById("equal");
+const eraseLast = document.getElementById("erase-last");
+
 numbersBtn.forEach(btn => {
     btn.addEventListener("click", e => {
         if (firstNumber !== '' 
@@ -108,3 +110,26 @@ equal.addEventListener("click", () => {
         console.log(`result: ${result}`);
         console.log(`current number: ${currentNumber}`);
 });
+
+eraseLast.addEventListener("click", () => {
+    numberOneArr = String(output.textContent).split('');
+    numberOneArr.pop();
+    currentNumber = Number(numberOneArr.join(""));
+    output.textContent = currentNumber;
+    if (firstNumber !== ''
+        && secondNumber !== ''
+        && operator !== ''
+        && result !== ''
+    ) {
+        firstNumber = currentNumber;
+        secondNumber = '';
+        operator = '';
+        result = '';
+        currentNumber = '';
+    }
+    console.log(`first: ${firstNumber}`);
+    console.log(`operator: ${operator}`);
+    console.log(`second: ${secondNumber}`);
+    console.log(`result: ${result}`);
+    console.log(`current number: ${currentNumber}`);
+})
